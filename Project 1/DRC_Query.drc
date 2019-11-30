@@ -1,0 +1,9 @@
+{LA|exists LB ('Album'(_,LA,LB) and exists LC,LD ('Artist'(LC,LD) and LB=LC and LD='Red Hot Chili Peppers'))}
+
+{MB|exists MA('Genre'(MA,MB) and exists MC,MD('Track'(_,_,MC,_,MD,_,_,_,_) and MA=MD and exists ME,MF('Album'(ME,_,MF) and MC=ME and exists MG,MH('Artist'(MG,MH) and MF=MG and MH='U2'))))}
+
+{NG,NA,ND|exists NB ('Artist'(NA,NB) and exists NC,NE ('Album'(NC,ND,NE) and NA=NE and exists NF,NH ('Track'(NF,NG,NH,_,_,_,_,_,_) and NC=NH and exists NI,NJ ('PlaylistTrack'(NI,NJ) and NF=NJ and exists NK,NL ('Playlist'(NK,NL) and NI=NK and NL='Grunge')))))}
+
+{OA,OB,OC|exists OD ('Customer'(OD,OA,OB,_,_,_,_,_,_,_,_,OC,_) and exists OE,OF ('Invoice'(OE,OF,_,_,_,_,_,_,_) and OD=OF and exists OG,OH ('InvoiceLine'(_,OG,OH,_,_) and OE=OG and exists OI,OJ ('PlaylistTrack'(OI,OJ) and OH=OJ and exists OK,OL ('Playlist'(OK,OL) and OI=OK and OL='TV Shows')))))}
+
+{PA,PB|exists PC ('Employee'(PC,PB,PA,_,_,_,_,_,_,_,_,_,_,_,_) and exists PD,PE ('Customer'(PE,_,_,_,_,_,_,_,_,_,_,_,PD) and PC=PD and exists PF,PG ('Invoice'(PF,PG,_,_,_,_,_,_,_) and PE=PG and exists PH,PI ('InvoiceLine'(_,PH,PI,_,_) and PF=PH and exists PJ,PK ('Track'(PJ,_,_,PK,_,_,_,_,_) and PI=PJ and exists PL,PM ('MediaType'(PL,PM) and PK=PL and PM='Purchased AAC audio file'))))))}
