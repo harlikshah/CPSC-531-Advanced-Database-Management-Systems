@@ -1,0 +1,19 @@
+%Query 1
+
+project Title ((select Name='Red Hot Chili Peppers' (Artist)) njoin Album);
+
+%Query 2
+
+project Genre.Name ((project ArtistId(select Name='U2' (Artist))) njoin Album njoin Track zjoin Track.GenreId=Genre.GenreId Genre);
+
+%Query 3
+
+project Track.Name,Album.Title,Artist.Name ((project PlaylistId (select Name='Grunge' (Playlist))) njoin PlaylistTrack njoin Track njoin Album zjoin Album.ArtistId = Artist.ArtistId Artist );
+
+%Query 4
+
+Project Customer.FirstName,Customer.Email ((project PlaylistId (select Name='TV Shows' (Playlist))) njoin PlaylistTrack njoin Track njoin InvoiceLine njoin Invoice njoin Customer)
+
+%Query 5
+
+project Employee.FirstName ((project MediaTypeId (select Name='Purchased AAC audio file' (MediaType))) njoin Track njoin InvoiceLine njoin Invoice njoin Customer zjoin Customer.SupportRepId=Employee.EmployeeId Employee);

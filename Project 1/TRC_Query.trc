@@ -1,0 +1,15 @@
+%TRC 
+%Query 1
+{A.Title | 'Album'(A) and ((exists AR) ('Artist'(AR) and A.ArtistId=AR.ArtistId and AR.Name='Red Hot Chili Peppers'))}
+
+%Query 2
+{G.Name | 'Genre'(G) and ((exists T) ('Track'(T) and G.GenreId=T.GenreId) and (exists A) ('Album'(A) and T.AlbumId=A.AlbumId) and (exists AR) ('Artist'(AR) and A.ArtistId=AR.ArtistId and AR.Name='U2'))}
+
+%Query 3
+{T.Name, A.Title, AR.Name | 'Track'(T) and 'Album'(A) and 'Artist'(AR) and T.AlbumId=A.AlbumId and A.ArtistId=AR.ArtistId and ((exists PT) ('PlaylistTrack'(PT) and PT.TrackId=T.TrackId) and (exists P) ('Playlist'(P) and P.PlaylistId=PT.PlaylistId and P.Name='Grunge'))}
+
+%Query 4
+{C.FirstName, C.Email | 'Customer'(C) and ((exists I) ('Invoice'(I) and C.CustomerId=I.CustomerId) and (exists IL) ('InvoiceLine'(IL) and IL.InvoiceId=I.InvoiceId) and (exists T) ('Track'(T) and IL.TrackId=T.TrackId) and (exists PT) ('PlaylistTrack'(PT) and PT.TrackId=T.TrackId) and (exists P)('Playlist'(P) and PT.PlaylistId=P.PlaylistId and P.Name='TV Shows'))}
+
+%Query 5
+{E.FirstName | 'Employee'(E) and ((exists C) ('Customer'(C) and C.SupportRepId=E.EmployeeId) and (exists I)('Invoice'(I) and C.CustomerId=I.CustomerId) and (exists IL) ('InvoiceLine'(IL) and IL.InvoiceId=I.InvoiceId) and (exists T)('Track'(T) and IL.TrackId=T.TrackId) and (exists MT) ('MediaType'(MT) and MT.MediaTypeId=T.MediaTypeId and MT.Name='Purchased AAC audio file'))}
